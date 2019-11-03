@@ -22,32 +22,32 @@ public class Outputter implements CommandLineRunner {
 		
 		// Checke combien d'objets se trouvent dans la BDD      
         LOG.info("******************");
-        LOG.info("Objects in DB : " + maisonRepository.count());
+        LOG.info("Nombre de maisons : " + maisonRepository.count());
 
         // Crée un nouvel utilisateur et l'enregistre dans la BDD
         Maison Maison1 = new Maison("Bienvenue", "15 place de la lLiberté");
         LOG.info("******************");
-        LOG.info(Maison1 + " has been created !");
+        LOG.info(Maison1 + " a bien été crée !");
         maisonRepository.save(Maison1);
-        LOG.info(Maison1 + " has been saved !");
+        LOG.info(Maison1 + " a bien été enregistrée !");
 
         // Crée un second utilisateur et l'enregistre dans la BDD
         Maison Maison2 = new Maison("La bonne place", "312 rue de la Paix");
         LOG.info("******************");
-        LOG.info(Maison2 + " has been created !");
+        LOG.info(Maison2 + " a bien été crée !");
         maisonRepository.save(Maison2);
-        LOG.info(Maison2 + " has been saved !");
+        LOG.info(Maison2 + " a bien été enregistrée !");
 
         // Lit les informations correspondant au second utilisateur
         Maison tempMaison = maisonRepository.findById(2L).get(); /* On écrit "2L" car 
                                                        le type de l'id est Long */
         LOG.info("******************");
-        LOG.info("Second Maison's firstName is " + tempMaison.getName());
-        LOG.info("Second Maison's lastName is " + tempMaison.getAddress());
+        LOG.info("Le nom de la seconde maison est " + tempMaison.getName());
+        LOG.info("Située au " + tempMaison.getAddress());
 
         // Liste les utilisateurs enregistrés dans la BDD
         LOG.info("******************");
-        LOG.info("Maisons in list are ");
+        LOG.info("Liste des maisons ");
         for(Maison myMaison : maisonRepository.findAll()) {
             LOG.info(myMaison.toString());
         };
@@ -61,7 +61,7 @@ public class Outputter implements CommandLineRunner {
             (permet de vérifier que le second utilisateur
             a bien été supprimé de la BDD) */
         LOG.info("******************");
-        LOG.info("Maisons in list are ");
+        LOG.info("Liste des maisons ");
         for(Maison myMaison : maisonRepository.findAll()) {
             LOG.info(myMaison.toString());
         };
